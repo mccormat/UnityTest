@@ -3,14 +3,14 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
-	public Vector2 speed = new Vector2(25, 25);
+	public Vector2 speed = new Vector2(15, 15);
+	private float calibration = 0.37f;
 	// Update is called once per frame
 	void Update () {
 		Vector3 dir = Vector3.zero;
-		dir.x = Input.acceleration.x * speed.x;
-		dir.y = Input.acceleration.y * speed.y;
-		Debug.Log (Time.deltaTime);
-		Debug.Log (dir.x);
+
+		dir.x += Input.acceleration.x * speed.x;
+		dir.y += (calibration + Input.acceleration.y) * speed.y;
 
 		if (dir.sqrMagnitude > 1) {
 			dir.Normalize ();
@@ -19,11 +19,7 @@ public class PlayerScript : MonoBehaviour {
 		dir *= Time.deltaTime*10;
 
 		transform.Translate (dir);
-//		float inputX = Input.GetAxis ("Horizontal");
-//		float inputY = Input.GetAxis ("Vertical");
-//		Vector3 movement = new Vector3 (speed.x * inputX, speed.y * inputY, 0);
-//		movement *= Time.deltaTime;
-//		transform.Translate (movement);
+
 		bool shoot = Input.GetButtonDown ("Fire1");
 		shoot |= Input.GetButtonDown ("Fire2");
 		if (shoot) {

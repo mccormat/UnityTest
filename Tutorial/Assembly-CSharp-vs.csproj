@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scipts\MenuScript.cs" />
      <Compile Include="Assets\Scipts\MoveScript.cs" />
      <Compile Include="Assets\Scipts\PlayerScript.cs" />
+     <Compile Include="Assets\Scipts\RecycleObjectScript.cs" />
      <Compile Include="Assets\Scipts\RendererExtensions.cs" />
      <Compile Include="Assets\Scipts\ScrollingScript.cs" />
      <Compile Include="Assets\Scipts\ShotScript.cs" />
