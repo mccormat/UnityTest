@@ -7,7 +7,7 @@ public class WeaponScript : MonoBehaviour
 
 	public float shootingRate = 0.25f;
 
-	private float shootCooldown;
+	public float shootCooldown;
 	
 	void Start()
 	{

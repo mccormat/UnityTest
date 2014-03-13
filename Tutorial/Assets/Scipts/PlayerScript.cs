@@ -2,30 +2,41 @@
 using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
-
+	
 	public Vector2 speed = new Vector2(15, 15);
 	private float calibration = 0.37f;
+	private int ammo = 12;
 	// Update is called once per frame
 	void Update () {
 		Vector3 dir = Vector3.zero;
-
+		
 		dir.x += Input.acceleration.x * speed.x;
 		dir.y += (calibration + Input.acceleration.y) * speed.y;
-
+		
 		if (dir.sqrMagnitude > 1) {
 			dir.Normalize ();
 		}
-
+		
 		dir *= Time.deltaTime*10;
-
+		
 		transform.Translate (dir);
-
-		bool shoot = Input.GetButtonDown ("Fire1");
-		shoot |= Input.GetButtonDown ("Fire2");
+		
+		bool shoot = Input.GetButton ("Fire1");
+		shoot |= Input.GetButton ("Fire2");
 		if (shoot) {
 			WeaponScript weapon = GetComponent<WeaponScript>();
-			if(weapon != null){
+			if (Input.touchCount == 2) {
+				ammo = 12;
+				weapon.shootCooldown = 3.0f;	
+			}
+			
+			if(ammo <= 0){
+				weapon.shootCooldown = 3.0f;
+				ammo = 12;
+			}
+			if(weapon != null && weapon.shootCooldown <= 0 && ammo > 0){
 				weapon.Attack(false);
+				ammo--;
 				SoundEffectsHelper.Instance.MakePlayerShotSound();
 			}
 		}
@@ -53,7 +64,7 @@ public class PlayerScript : MonoBehaviour {
 			transform.position.z
 			);
 	}
-
+	
 	void OnDestroy()
 	{
 		// Game Over.
