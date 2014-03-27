@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scipts\BossScript.cs" />
+     <Compile Include="Assets\Scipts\BossWeaponScript.cs" />
      <Compile Include="Assets\Scipts\EnemyScript.cs" />
      <Compile Include="Assets\Scipts\GameOverScript.cs" />
      <Compile Include="Assets\Scipts\HealthScript.cs" />
