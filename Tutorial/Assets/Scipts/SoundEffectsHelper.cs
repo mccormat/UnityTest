@@ -12,6 +12,7 @@ public class SoundEffectsHelper : MonoBehaviour
 	public AudioClip explosionSound;
 	public AudioClip playerShotSound;
 	public AudioClip enemyShotSound;
+	public AudioClip playerReloadSound;
 	
 	void Awake()
 	{
@@ -36,6 +37,11 @@ public class SoundEffectsHelper : MonoBehaviour
 	public void MakeEnemyShotSound()
 	{
 		MakeSound(enemyShotSound);
+	}
+	
+	public void MakePlayerReloadSound()
+	{
+		MakeSound(playerReloadSound);
 	}
 	
 	/// <summary>

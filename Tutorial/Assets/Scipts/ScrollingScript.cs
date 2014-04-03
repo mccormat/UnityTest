@@ -32,9 +32,12 @@ public class ScrollingScript : MonoBehaviour
   /// </summary>
   private List<Transform> backgroundPart;
 
+	private int count;
+
   // 3 - Get all the children
   void Start()
   {
+		count = 0;
     // For infinite background only
     if (isLooping)
     {
@@ -64,57 +67,56 @@ public class ScrollingScript : MonoBehaviour
 
   void Update()
   {
-    // Movement
-    Vector3 movement = new Vector3(
+				if (count < 200) {
+						count++;	
+				} else {
+						// Movement
+						Vector3 movement = new Vector3 (
       speed.x * direction.x,
       speed.y * direction.y,
       0);
 
-    movement *= Time.deltaTime;
-    transform.Translate(movement);
+						movement *= Time.deltaTime;
+						transform.Translate (movement);
 
-    // Move the camera
-    if (isLinkedToCamera)
-    {
-      Camera.main.transform.Translate(movement);
-    }
+						// Move the camera
+						if (isLinkedToCamera) {
+								Camera.main.transform.Translate (movement);
+						}
 
-    // 4 - Loop
-    if (isLooping)
-    {
-      // Get the first object.
-      // The list is ordered from left (x position) to right.
-      Transform firstChild = backgroundPart.FirstOrDefault();
+						// 4 - Loop
+						if (isLooping) {
+								// Get the first object.
+								// The list is ordered from left (x position) to right.
+								Transform firstChild = backgroundPart.FirstOrDefault ();
 
-      if (firstChild != null)
-      {
-        // Check if the child is already (partly) before the camera.
-        // We test the position first because the IsVisibleFrom
-        // method is a bit heavier to execute.
-        if (firstChild.position.x < Camera.main.transform.position.x)
-        {
-          // If the child is already on the left of the camera,
-          // we test if it's completely outside and needs to be
-          // recycled.
-          if (firstChild.renderer.IsVisibleFrom(Camera.main) == false)
-          {
-            // Get the last child position.
-            Transform lastChild = backgroundPart.LastOrDefault();
-            Vector3 lastPosition = lastChild.transform.position;
-            Vector3 lastSize = (lastChild.renderer.bounds.max - lastChild.renderer.bounds.min);
+								if (firstChild != null) {
+										// Check if the child is already (partly) before the camera.
+										// We test the position first because the IsVisibleFrom
+										// method is a bit heavier to execute.
+										if (firstChild.position.x < Camera.main.transform.position.x) {
+												// If the child is already on the left of the camera,
+												// we test if it's completely outside and needs to be
+												// recycled.
+												if (firstChild.renderer.IsVisibleFrom (Camera.main) == false) {
+														// Get the last child position.
+														Transform lastChild = backgroundPart.LastOrDefault ();
+														Vector3 lastPosition = lastChild.transform.position;
+														Vector3 lastSize = (lastChild.renderer.bounds.max - lastChild.renderer.bounds.min);
 
-            // Set the position of the recyled one to be AFTER
-            // the last child.
-            // Note: Only work for horizontal scrolling currently.
-            firstChild.position = new Vector3(lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
+														// Set the position of the recyled one to be AFTER
+														// the last child.
+														// Note: Only work for horizontal scrolling currently.
+														firstChild.position = new Vector3 (lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
 
-            // Set the recycled child to the last position
-            // of the backgroundPart list.
-            backgroundPart.Remove(firstChild);
-            backgroundPart.Add(firstChild);
-          }
-        }
-      }
-    }
-  }
+														// Set the recycled child to the last position
+														// of the backgroundPart list.
+														backgroundPart.Remove (firstChild);
+														backgroundPart.Add (firstChild);
+												}
+										}
+								}
+						}
+				}
+		}
 }

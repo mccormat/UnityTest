@@ -30,7 +30,7 @@ public class WeaponScript : MonoBehaviour
 
 			var shotTransform = Instantiate(shotPrefab) as Transform;
 
-			shotTransform.position = transform.position;
+			shotTransform.position = transform.position + new Vector3(4f, -0.3f, 0);
 
 			ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
 			if (shot != null)

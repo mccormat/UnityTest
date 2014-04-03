@@ -7,12 +7,12 @@ public class EnemyScript : MonoBehaviour
 {
 	private bool hasSpawn;
 	private MoveScript moveScript;
-	private WeaponScript[] weapons;
+	private EnemyWeaponScript[] weapons;
 	
 	void Awake()
 	{
 		// Retrieve the weapon only once
-		weapons = GetComponentsInChildren<WeaponScript>();
+		weapons = GetComponentsInChildren<EnemyWeaponScript>();
 		
 		// Retrieve scripts to disable when not spawn
 		moveScript = GetComponent<MoveScript>();
@@ -29,7 +29,7 @@ public class EnemyScript : MonoBehaviour
 		// -- Moving
 		moveScript.enabled = false;
 		// -- Shooting
-		foreach (WeaponScript weapon in weapons)
+		foreach (EnemyWeaponScript weapon in weapons)
 		{
 			weapon.enabled = false;
 		}
@@ -48,7 +48,7 @@ public class EnemyScript : MonoBehaviour
 		else
 		{
 			// Auto-fire
-			foreach (WeaponScript weapon in weapons)
+			foreach (EnemyWeaponScript weapon in weapons)
 			{
 				if (weapon != null && weapon.enabled && weapon.CanAttack)
 				{
@@ -76,7 +76,7 @@ public class EnemyScript : MonoBehaviour
 		// -- Moving
 		moveScript.enabled = true;
 		// -- Shooting
-		foreach (WeaponScript weapon in weapons)
+		foreach (EnemyWeaponScript weapon in weapons)
 		{
 			weapon.enabled = true;
 		}

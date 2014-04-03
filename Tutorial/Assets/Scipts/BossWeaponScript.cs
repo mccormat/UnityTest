@@ -51,7 +51,7 @@ public class BossWeaponScript : MonoBehaviour
 			//First weapon
 			var shotTransform = Instantiate(shotPrefab) as Transform;
 			
-			shotTransform.position = transform.position + new Vector3(-3.0f, 5.0f, 0);
+			shotTransform.position = transform.position + new Vector3(-7.5f, 5.0f, 0);
 			
 			ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
 			if (shot != null)
@@ -73,7 +73,7 @@ public class BossWeaponScript : MonoBehaviour
 			//Second weapon
 			var shot2Transform = Instantiate(shot2Prefab) as Transform;
 			
-			shot2Transform.position = transform.position + new Vector3(-5.5f, 0, 0);
+			shot2Transform.position = transform.position + new Vector3(-7f, 0, 0);
 			
 			ShotScript shot2 = shot2Transform.gameObject.GetComponent<ShotScript>();
 			if (shot2 != null)
@@ -94,7 +94,7 @@ public class BossWeaponScript : MonoBehaviour
 			//Second weapon
 			var shot3Transform = Instantiate(shot3Prefab) as Transform;
 			
-			shot3Transform.position = transform.position + new Vector3(-10f, -5f, 0);
+			shot3Transform.position = transform.position + new Vector3(-1f, -5f, 0);
 			
 			ShotScript shot3 = shot3Transform.gameObject.GetComponent<ShotScript>();
 			if (shot3 != null)

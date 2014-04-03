@@ -5,7 +5,7 @@ public class PlayerScript : MonoBehaviour {
 	
 	public Vector2 speed = new Vector2(15, 15);
 	private float calibration = 0.37f;
-	private int ammo = 12;
+	public int ammo = 12;
 	// Update is called once per frame
 	void Update () {
 		Vector3 dir = Vector3.zero;
@@ -24,20 +24,24 @@ public class PlayerScript : MonoBehaviour {
 		bool shoot = Input.GetButton ("Fire1");
 		shoot |= Input.GetButton ("Fire2");
 		if (shoot) {
-			WeaponScript weapon = GetComponent<WeaponScript>();
+			WeaponScript weapon = GetComponent<WeaponScript> ();
 			if (Input.touchCount == 2) {
-				ammo = 12;
-				weapon.shootCooldown = 3.0f;	
-			}
-			
-			if(ammo <= 0){
-				weapon.shootCooldown = 3.0f;
-				ammo = 12;
-			}
-			if(weapon != null && weapon.shootCooldown <= 0 && ammo > 0){
-				weapon.Attack(false);
-				ammo--;
-				SoundEffectsHelper.Instance.MakePlayerShotSound();
+				if (ammo != 12) {
+					ammo = 12;
+					weapon.shootCooldown = 2.0f;
+					SoundEffectsHelper.Instance.MakePlayerReloadSound ();
+				}
+			} else {
+				if (ammo <= 0) {
+					weapon.shootCooldown = 2.0f;
+					ammo = 12;
+					SoundEffectsHelper.Instance.MakePlayerReloadSound ();
+				}
+				if (weapon != null && weapon.shootCooldown <= 0 && ammo > 0) {
+					weapon.Attack (false);
+					ammo--;
+					SoundEffectsHelper.Instance.MakePlayerShotSound ();
+				}
 			}
 		}
 		var dist = (transform.position - Camera.main.transform.position).z;
