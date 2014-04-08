@@ -7,19 +7,21 @@ void OnGUI()
 	{
 		const int buttonWidth = 120;
 		const int buttonHeight = 60;
-		
+
+		int playerScore = SpecialEffectsHelper.playerScore;
+
 		if (
 			GUI.Button(
-			// Center in X, 1/3 of the height in Y
-			new Rect(
-			Screen.width / 2 - (buttonWidth / 2),
-			(1 * Screen.height / 3) - (buttonHeight / 2),
-			buttonWidth,
-			buttonHeight
-			),
-			"Retry!"
+				// Center in X, 1/3 of the height in Y
+				new Rect(
+					Screen.width / 2 - (buttonWidth / 2),
+					(1 * Screen.height / 3) - (buttonHeight / 2),
+					buttonWidth,
+					buttonHeight
+				),
+			"Score: " + playerScore.ToString()
 			)
-			)
+		)
 		{
 			// Reload the level
 			Application.LoadLevel("Stage1");
@@ -27,16 +29,16 @@ void OnGUI()
 		
 		if (
 			GUI.Button(
-			// Center in X, 2/3 of the height in Y
-			new Rect(
-			Screen.width / 2 - (buttonWidth / 2),
-			(2 * Screen.height / 3) - (buttonHeight / 2),
-			buttonWidth,
-			buttonHeight
-			),
-			"Back to menu"
+				// Center in X, 2/3 of the height in Y
+				new Rect(
+					Screen.width / 2 - (buttonWidth / 2),
+					(2 * Screen.height / 3) - (buttonHeight / 2),
+					buttonWidth,
+					buttonHeight
+				),
+				"Back to menu"
 			)
-			)
+		)
 		{
 			// Reload the level
 			Application.LoadLevel("Menu");

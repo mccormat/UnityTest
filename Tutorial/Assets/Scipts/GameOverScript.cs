@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameOverScript : MonoBehaviour
-{
+public class GameOverScript : MonoBehaviour {
+	
 	void OnGUI()
 	{
 		const int buttonWidth = 120;
 		const int buttonHeight = 60;
+		
+		int playerScore = SpecialEffectsHelper.playerScore;
 		
 		if (
 			GUI.Button(
@@ -17,7 +19,7 @@ public class GameOverScript : MonoBehaviour
 			buttonWidth,
 			buttonHeight
 			),
-			"Retry!"
+			"Score: " + playerScore.ToString()
 			)
 			)
 		{

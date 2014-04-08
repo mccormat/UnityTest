@@ -67,7 +67,7 @@ public class ScrollingScript : MonoBehaviour
 
   void Update()
   {
-				if (count < 200) {
+				if (count < 180) {
 						count++;	
 				} else {
 						// Movement
