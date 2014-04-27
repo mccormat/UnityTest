@@ -19,7 +19,7 @@ public class GameOverScript : MonoBehaviour {
 			buttonWidth,
 			buttonHeight
 			),
-			"Score: " + playerScore.ToString()
+			"Retry"
 			)
 			)
 		{

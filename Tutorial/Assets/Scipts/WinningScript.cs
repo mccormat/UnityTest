@@ -19,7 +19,7 @@ void OnGUI()
 					buttonWidth,
 					buttonHeight
 				),
-			"Score: " + playerScore.ToString()
+			"Retry"
 			)
 		)
 		{

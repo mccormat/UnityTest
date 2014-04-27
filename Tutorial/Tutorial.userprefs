@@ -1,16 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scipts\GameOverScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scipts\PlayerScript.cs">
     <Files>
-      <File FileName="Assets\Scipts\GameStartScript.cs" Line="43" Column="27" />
+      <File FileName="Assets\Scipts\GameStartScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scipts\ScrollingScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scipts\PlayerScript.cs" Line="10" Column="36" />
-      <File FileName="Assets\Scipts\EnemyScript.cs" Line="14" Column="14" />
-      <File FileName="Assets\Scipts\SpecialEffectsHelper.cs" Line="14" Column="16" />
-      <File FileName="Assets\Scipts\WinningScript.cs" Line="15" Column="18" />
-      <File FileName="Assets\Scipts\GuiTextFollower.cs" Line="38" Column="26" />
-      <File FileName="Assets\Scipts\BossScript.cs" Line="90" Column="51" />
-      <File FileName="Assets\Scipts\GameOverScript.cs" Line="4" Column="22" />
+      <File FileName="Assets\Scipts\PlayerScript.cs" Line="7" Column="33" />
+      <File FileName="Assets\Scipts\EnemyScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scipts\SpecialEffectsHelper.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scipts\WinningScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scipts\GuiTextFollower.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scipts\BossScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scipts\GameOverScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
