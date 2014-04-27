@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour {
 	
 	public Vector2 speed = new Vector2(15, 15);
-	private float calibration = 0.37f;
+	private float calibration = 0.7f;
 	public int ammo = 12;
 	private int frameCount = 0;
 	// Update is called once per frame
